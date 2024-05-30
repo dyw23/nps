@@ -115,6 +115,7 @@ func main() {
 			return
 		case "nat":
 			c := stun.NewClient()
+			flag.CommandLine.Parse(os.Args[2:])
 			c.SetServerAddr(*stunAddr)
 			nat, host, err := c.Discover()
 			if err != nil || host == nil {
